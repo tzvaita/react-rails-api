@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  // eslint-disable-next-line no-unused-vars
+  Switch, Route, NavLink, Redirect,
+} from 'react-router-dom';
+import CarsList from './containers/CarsList';
+import Car from './containers/Car';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" exact component={CarsList} />
+        <Route path="/car/:car" exact component={Car} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   );
 }
